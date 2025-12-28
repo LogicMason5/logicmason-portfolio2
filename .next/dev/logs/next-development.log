@@ -1,0 +1,439 @@
+[00:00:10.792] Server  LOG      ✓ Ready in 8.1s
+[00:00:13.805] Server  LOG      ○ Compiling / ...
+[00:00:24.873] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:25.353] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:25.873] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:07.026] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:19.012] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:26.123] Server  LOG      ○ Compiling /about ...
+[00:01:27.295] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:23:11.180] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:15.234] Server  LOG      ✓ Compiled in 309ms
+[00:23:15.822] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています",
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:23:19.833] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています",
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:23:21.828] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています",
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:23:22.829] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています",
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:23:50.823] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています"
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:23:55.357] Server  ERROR    ⨯ ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています"
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+
+
+[00:23:55.490] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています"
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:23:56.385] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています"
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:23:56.566] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています"
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:23:58.847] Browser ERROR   uncaughtError: Error: ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています"
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+
+
+[00:23:58.977] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています"
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:23:59.114] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています"
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:24:39.825] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています",
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:24:43.197] Server  ERROR    ⨯ ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています",
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+
+
+[00:24:43.434] Browser ERROR   uncaughtError: Error: ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています",
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+
+
+[00:24:43.644] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています",
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:24:43.644] Browser ERROR   ./components/projects-section.tsx:28:69
+Parsing ecmascript source code failed
+  26 |     demo: "https://recruit.five-group.co.jp/",
+  27 |     longDescription:
+> 28 |       "株式会社ファイブグループの採用サイト。「"楽しい"でつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています",
+     |                                                                     ^^^^^^^^^
+  29 |   },
+  30 |   {
+  31 |     id: 2,
+
+Expected ',', got '楽しい'
+
+Import traces:
+  Client Component Browser:
+    ./components/projects-section.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Client Component Browser]
+    ./app/projects/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/projects-section.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Client Component SSR]
+    ./app/projects/page.tsx [Server Component]
+[00:24:59.770] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:00.753] Browser WARN    Image with src "/modern-ecommerce-marketplace.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:25:53.112] Server  LOG      ✓ Compiled in 54ms
+[01:11:13.290] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:11:19.107] Server  LOG      ✓ Compiled in 122ms
+[01:11:40.772] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:11:41.138] Browser WARN    Image with src "/7.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:26:08.725] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:26:09.189] Browser WARN    Image with src "/5.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:26:46.065] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:26:46.456] Browser WARN    Image with src "/5.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:26:47.813] Server  LOG      ✓ Compiled in 52ms
+[01:26:50.359] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:26:50.687] Browser WARN    Image with src "/2.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:27:54.291] Server  LOG      ✓ Compiled in 41ms
+[01:31:58.988] Server  LOG      ✓ Compiled in 43ms
+[01:33:37.477] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:33:37.852] Browser WARN    Image with src "/6.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[01:33:48.623] Server  LOG      ✓ Compiled in 46ms
+[01:40:12.370] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:40:20.181] Server  LOG      ✓ Compiled in 47ms
+[01:41:03.554] Server  LOG      ✓ Compiled in 48ms
+[02:46:34.549] Server  LOG      ✓ Compiled in 298ms
+[02:56:19.937] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:56:28.023] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:56:28.296] Browser WARN    Image with src "/9.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[03:40:19.650] Server  LOG      ✓ Compiled in 107ms
+[03:52:43.374] Server  LOG      ✓ Compiled in 51ms
+[03:52:47.563] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:53:42.579] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:54:16.316] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[03:59:08.614] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[03:59:10.686] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:00:44.718] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:00:47.849] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[04:02:11.156] Server  LOG      ✓ Compiled in 164ms
+[04:02:36.188] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:03:51.931] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[04:03:57.049] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior

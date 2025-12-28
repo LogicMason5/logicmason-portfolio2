@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { GitHubWarningToast } from "@/components/github-warning-toast"
+import { ExternalLink, Code2, Lock, CheckCircle2, Key } from "lucide-react"
 import Image from "next/image"
 
 type ProjectCategory = "all" | "fullstack" | "mobile" | "ai"
@@ -15,263 +16,263 @@ type ProjectCategory = "all" | "fullstack" | "mobile" | "ai"
 const projects = [
   {
     id: 1,
-    title: "DeFi Trading Platform",
+    title: "Five Group – Fun-Driven Food Lifestyle Company",
     category: "fullstack" as const,
-    description: "A comprehensive trading platform with real-time market data and portfolio management",
-    image: "/modern-trading-dashboard.png",
-    technologies: ["Next.js", "Node.js", "PostgreSQL", "WebSocket"],
-    github: "https://github.com/username/defi-trading-platform",
-    isPrivate: true,
-    demo: "#",
+    description: "株式会社ファイブグループの採用サイト。",
+    image: "/1.png",
+    technologies: ["Vue.js", "Nuxt.js", "Firebase", "PostgreSQL"],
+    github: "https://github.com/LogicMason5/Five-Group-Fun--Driven-Food-Lifestyle-Company",
+    isPrivate: false,
+    demo: "https://recruit.five-group.co.jp/",
     longDescription:
-      "A comprehensive trading platform built with Next.js featuring real-time market data, automated trading strategies, portfolio management, and secure authentication. The platform handles thousands of transactions per second with sub-millisecond latency.",
+      "株式会社ファイブグループの採用サイト。「楽しいでつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています",
   },
   {
     id: 2,
-    title: "AI-Powered Mobile Assistant",
-    category: "ai" as const,
-    description: "Cross-platform mobile app with AI-driven personal assistant capabilities",
-    image: "/ai-mobile-assistant-app-interface.jpg",
-    technologies: ["React Native", "TensorFlow", "FastAPI", "MongoDB"],
-    github: "https://github.com/username/ai-mobile-assistant",
-    isPrivate: false,
-    demo: "#",
+    title: "Holidu: Vacation Rentals",
+    category: "fullstack" as const,
+    description: "Vacation Rentals Booking App",
+    image: "/2.png",
+    technologies: ["Next", "Typescript", "FastAPI", "Django", "Stripe", "Redis"],
+    github: "https://github.com/LogicMason5/Holidu",
+    isPrivate: true,
+    demo: "https://www.holidu.com/app",
     longDescription:
-      "An intelligent mobile assistant app that leverages machine learning to provide personalized recommendations, voice commands, and predictive task management. Built with React Native for cross-platform compatibility and FastAPI for the backend AI processing engine.",
+      "With Holidu you have access to millions of accommodations around Europe.",
   },
   {
     id: 3,
-    title: "E-Commerce Marketplace",
+    title: "Fashion Sushi Bar – Online Sushi Restaurant",
     category: "fullstack" as const,
-    description: "Full-featured e-commerce platform with payment processing and inventory management",
-    image: "/modern-ecommerce-marketplace.jpg",
-    technologies: ["Vue", "Laravel", "MySQL", "Stripe"],
-    github: "https://github.com/username/ecommerce-marketplace",
-    isPrivate: true,
-    demo: "#",
+    description: "Online Sushi Restaurant",
+    image: "/3.png",
+    technologies: ["Next", "Typescript", "TailwindCSS", "Node.js"],
+    github: "https://github.com/LogicMason5/Fashion-Sushi-Bar",
+    isPrivate: false,
+    demo: "https://sushi-restaurant.rashidshamloo.com/",
     longDescription:
-      "A scalable e-commerce marketplace with advanced features including multi-vendor support, real-time inventory tracking, secure payment processing through Stripe, and an admin dashboard for analytics and reporting.",
+      "Online Sushi Restaurant",
   },
   {
     id: 4,
-    title: "Fitness Tracking App",
+    title: "BrighterVPN",
     category: "mobile" as const,
-    description: "Native iOS and Android fitness tracker with health data integration",
-    image: "/fitness-tracking-app-interface.png",
-    technologies: ["Swift", "Kotlin", "Firebase", "HealthKit"],
-    github: "https://github.com/username/fitness-tracking-app",
-    isPrivate: false,
-    demo: "#",
+    description: "BrighterVPN protects your data with advanced encryption and guarantees zero logging of your activities, ensuring that your online activities are private and secure.",
+    image: "/4.png",
+    technologies: ["ReactNative", "Typescript", "Firebase", "Expo"],
+    github: "https://github.com/LogicMason5/BrighterVPN",
+    isPrivate: true,
+    demo: "https://play.google.com/store/apps/details?id=com.brighter.vpn.app&hl=en",
     longDescription:
-      "A comprehensive fitness tracking application with native implementations for iOS (Swift) and Android (Kotlin). Integrates with HealthKit and Google Fit for seamless health data synchronization, workout planning, and progress tracking.",
+      "BrighterVPN protects your data with advanced encryption and guarantees zero logging of your activities, ensuring that your online activities are private and secure.",
   },
   {
     id: 5,
-    title: "Social Media Analytics Dashboard",
+    title: "PlasBit – Crypto Wallet & Exchange Platform",
     category: "fullstack" as const,
-    description: "Real-time analytics platform for social media insights and engagement metrics",
-    image: "/social-media-analytics-dashboard.png",
-    technologies: ["React", "Node.js", "PostgreSQL", "Docker"],
-    github: "https://github.com/username/social-analytics",
+    description: "A full-stack cryptocurrency platform offering exchange",
+    image: "/5.png",
+    technologies: ["MERN", "Meteor.js", "Web3"],
+    github: "https://github.com/LogicMason5/Plasbit",
     isPrivate: true,
-    demo: "#",
+    demo: "https://plasbit.com/",
     longDescription:
-      "An enterprise-grade analytics dashboard that aggregates data from multiple social media platforms, providing real-time insights, sentiment analysis, and engagement metrics. Containerized with Docker for easy deployment.",
+      "A full-stack cryptocurrency platform offering exchange, wallet, bank-transfer and crypto-linked card services with in-house custody and PCI DSS security.",
   },
   {
     id: 6,
-    title: "Restaurant Ordering App",
+    title: "Solar Card",
     category: "mobile" as const,
-    description: "Flutter-based food ordering app with real-time order tracking",
-    image: "/restaurant-food-ordering-mobile-app.jpg",
-    technologies: ["Flutter", "Django", "PostgreSQL", "Stripe"],
-    github: "https://github.com/username/restaurant-ordering",
-    isPrivate: false,
-    demo: "#",
+    description: "The Solar Card is a cutting-edge financial tool designed to seamlessly integrate digital assets into everyday spending.",
+    image: "/6.png",
+    technologies: ["Flutter", "Dart", "Firebase", "Stripe"],
+    github: "https://github.com/LogicMason5/Solar-Card",
+    isPrivate: true,
+    demo: "https://play.google.com/store/apps/details?id=app.solarcard.ionic&hl=en&pli=1",
     longDescription:
-      "A beautiful and intuitive restaurant ordering application built with Flutter. Features include menu browsing, custom order creation, real-time order tracking, secure payments, and customer reviews.",
+      "The Solar Card is a cutting-edge financial tool designed to seamlessly integrate digital assets into everyday spending.",
   },
   {
     id: 7,
-    title: "Video Streaming Platform",
-    category: "fullstack" as const,
-    description: "Netflix-style streaming service with CDN integration and adaptive bitrate streaming",
-    image: "/video-streaming-platform.jpg",
-    technologies: ["Next.js", "Node.js", "MongoDB", "AWS"],
-    github: "https://github.com/username/video-streaming",
+    title: "AICompar – AI Models & Tools Comparison Hub",
+    category: "ai" as const,
+    description: "Web platform for comparing and analyzing AI models, tools, and prompts with data-driven insights and side-by-side comparisons.",
+    image: "/7.png",
+    technologies: ["AI Models", "Benchmarking", "DataAnalysis", "+1"],
+    github: "https://github.com/LogicMason5/AICompar",
     isPrivate: true,
-    demo: "#",
+    demo: "https://aicompar.com/",
     longDescription:
       "A scalable video streaming platform with adaptive bitrate streaming, content delivery network integration, user authentication, subscription management, and personalized recommendations powered by machine learning.",
   },
   {
     id: 8,
-    title: "Real Estate Mobile App",
+    title: "Property Finder – A Home for Every Life",
     category: "mobile" as const,
-    description: "Property search and virtual tour mobile application",
-    image: "/real-estate-mobile-app.jpg",
-    technologies: ["React Native", "FastAPI", "PostgreSQL", "Maps API"],
-    github: "https://github.com/username/real-estate-app",
-    isPrivate: false,
-    demo: "#",
+    description: "Explore 350,000+ homes, get instant alerts, and connect with top super agents, FAST.",
+    image: "/8.png",
+    technologies: ["Flutter", "Node.js", "PostgreSQL", "AWS", "GoogleMaps API"],
+    github: "https://github.com/LogicMason5/Property-Finder",
+    isPrivate: true,
+    demo: "https://play.google.com/store/apps/details?id=ae.propertyfinder.propertyfinder",
     longDescription:
-      "A feature-rich real estate application with property listings, advanced search filters, virtual 3D tours, mortgage calculators, and direct messaging with agents. Includes map-based search and neighborhood insights.",
+      "Explore 350,000+ homes, get instant alerts, and connect with top super agents, FAST.",
   },
   {
     id: 9,
-    title: "Blockchain Supply Chain Tracker",
-    category: "fullstack" as const,
-    description: "Transparent supply chain tracking using blockchain technology",
-    image: "/blockchain-supply-chain.png",
-    technologies: ["React", "Node.js", "Solidity", "Ethereum"],
-    github: "https://github.com/username/blockchain-supply-chain",
+    title: "Thoughtly — AI Voice Agent Platform",
+    category: "ai" as const,
+    description: "AI Voice Agents for Calls",
+    image: "/9.png",
+    technologies: ["React", "Node.js", "GSAP", "Twilio", "OpenAI"],
+    github: "https://github.com/LogicMason5/Thoughtly-AI-Voice-Agents-for-Calls",
     isPrivate: true,
-    demo: "#",
+    demo: "https://www.thoughtly.com/",
     longDescription:
-      "A decentralized supply chain management system that uses blockchain for transparent product tracking from manufacturer to consumer. Smart contracts ensure data integrity and automated compliance verification.",
+      "AI Voice Agents for Calls",
   },
   {
     id: 10,
-    title: "Language Learning App",
-    category: "mobile" as const,
-    description: "Gamified language learning mobile app with speech recognition",
-    image: "/language-learning-app.png",
-    technologies: ["Flutter", "Firebase", "ML Kit", "TensorFlow"],
-    github: "https://github.com/username/language-learning",
-    isPrivate: false,
-    demo: "#",
+    title: "Elsa Speak — Language Learning App",
+    category: "ai" as const,
+    description: "Speak, Listen, and Learn 100+ Languages with Elsa Speak",
+    image: "/10.png",
+    technologies: ["React", "OpenAI", "Flutter", "TailwindCSS"],
+    github: "https://github.com/LogicMason5/Elsa-Speak-Language-Learning-App",
+    isPrivate: true,
+    demo: "https://elsaspeak.com/en/",
     longDescription:
-      "An engaging language learning platform with gamification elements, speech recognition for pronunciation practice, adaptive learning algorithms, and progress tracking across multiple languages.",
+      "Speak, Listen, and Learn 100+ Languages with Elsa Speak",
   },
   {
     id: 11,
-    title: "Smart Home Dashboard",
-    category: "fullstack" as const,
-    description: "IoT device management dashboard with automation rules",
-    image: "/smart-home-iot-dashboard.png",
-    technologies: ["Vue", "Node.js", "MQTT", "Docker"],
-    github: "https://github.com/username/smart-home-dashboard",
+    title: "Apple Health",
+    category: "mobile" as const,
+    description: "The Apple Health app provides a central and secure place for your health data.",
+    image: "/11.png",
+    technologies: ["React Native", "Supabase", "Prisma", "REST API", "TailwindCSS", "Expo"],
+    github: "https://github.com/LogicMason5/App-Health",
     isPrivate: true,
-    demo: "#",
+    demo: "https://apps.apple.com/us/app/apple-health/id1242545199",
     longDescription:
-      "A comprehensive smart home control center that manages multiple IoT devices, creates automation rules, monitors energy usage, and provides detailed analytics. Built with real-time communication protocols.",
+      "The Apple Health app provides a central and secure place for your health data.",
   },
   {
     id: 12,
-    title: "Crypto Wallet App",
+    title: "Zoundz — Pet Anxiety Therapeutic",
     category: "mobile" as const,
-    description: "Secure multi-chain cryptocurrency wallet with DeFi integration",
-    image: "/cryptocurrency-wallet-app.jpg",
-    technologies: ["React Native", "Web3", "Node.js", "Secure Enclave"],
-    github: "https://github.com/username/crypto-wallet",
-    isPrivate: false,
-    demo: "#",
+    description: "Zoundz is a pet anxiety therapeutic app that helps pets relax and sleep better.",
+    image: "/12.png",
+    technologies: ["React Native", "Node.js", "SendGrid", "TailwindCSS"],
+    github: "https://github.com/LogicMason5/Zoundz-Pet-Anxiety-Therapeutic",
+    isPrivate: true,
+    demo: "https://apps.apple.com/ca/app/zoundz-pet-anxiety-therapeutic/id1554036162",
     longDescription:
-      "A highly secure cryptocurrency wallet supporting multiple blockchains, token swaps, DeFi protocol integration, and hardware wallet compatibility. Features biometric authentication and secure key storage.",
+      "Zoundz is a pet anxiety therapeutic app that helps pets relax and sleep better.",
   },
   {
     id: 13,
-    title: "Healthcare Management System",
+    title: "Abel Fragrance — Perfume Store",
     category: "fullstack" as const,
-    description: "HIPAA-compliant patient management and telemedicine platform",
-    image: "/healthcare-management-system.jpg",
-    technologies: ["Next.js", "Laravel", "PostgreSQL", "WebRTC"],
-    github: "https://github.com/username/healthcare-system",
+    description: "Abel Fragrance is a perfume store that sells a variety of perfumes and fragrances.",
+    image: "/13.png",
+    technologies: ["Shopify", "GadgetFlow", "React"],
+    github: "https://github.com/LogicMason5/Abel-Fragrance-Perfume-Store",
     isPrivate: true,
-    demo: "#",
+    demo: "https://abelfragrance.com/",
     longDescription:
-      "An enterprise healthcare platform with patient records management, appointment scheduling, telemedicine video consultations, prescription management, and billing integration. Fully HIPAA compliant.",
+      "Abel Fragrance is a perfume store that sells a variety of perfumes and fragrances.",
   },
   {
     id: 14,
-    title: "Travel Booking App",
-    category: "mobile" as const,
-    description: "Comprehensive travel booking with flights, hotels, and activities",
-    image: "/travel-booking-app.png",
-    technologies: ["Swift", "Kotlin", "Node.js", "MongoDB"],
-    github: "https://github.com/username/travel-booking",
-    isPrivate: false,
-    demo: "#",
+    title: "Minami — AI Travel Assistant",
+    category: "ai" as const,
+    description: "Minami is an AI travel assistant that helps you plan your trip.",
+    image: "/14.png",
+    technologies: ["Astro", "TailwindCSS", "ML Model", "NLP", "Supabase", "AWS"],
+    github: "https://github.com/LogicMason5/Minami-AI",
+    isPrivate: true,
+    demo: "https://minami.ai/",
     longDescription:
-      "A one-stop travel booking application with flight search, hotel reservations, activity bookings, itinerary planning, and travel guides. Includes offline mode and multi-currency support.",
+      "Minami is an AI travel assistant that helps you plan your trip.",
   },
   {
     id: 15,
-    title: "AI Content Generation Platform",
-    category: "ai" as const,
-    description: "GPT-powered content creation tool for marketers and creators",
-    image: "/ai-content-platform.png",
-    technologies: ["React", "FastAPI", "OpenAI API", "Redis"],
-    github: "https://github.com/username/ai-content-generator",
+    title: "Mimi Hair Salon",
+    category: "fullstack" as const,
+    description: "Mimi Hair Salon is a hair salon that provides a variety of hair services.",
+    image: "/15.png",
+    technologies: ["Wordpress", "Ngnix", "MySQL"],
+    github: " https://github.com/LogicMason5/Mimi-Hair-Salon-AI-Content-Generation-Platform",
     isPrivate: true,
-    demo: "#",
+    demo: "https://mimi-hairsalon.com/",
     longDescription:
-      "An AI-powered content creation platform that generates blog posts, social media content, and marketing copy. Features template management, brand voice customization, and SEO optimization suggestions.",
+      "Mimi Hair Salon is a hair salon that provides a variety of hair services.",
   },
   {
     id: 16,
-    title: "Event Management App",
+    title: "Swiz — Find Your Tribe",
     category: "mobile" as const,
-    description: "Event discovery and ticket booking mobile application",
-    image: "/event-management-app.jpg",
-    technologies: ["Flutter", "Django", "PostgreSQL", "Stripe"],
-    github: "https://github.com/username/event-management",
-    isPrivate: false,
-    demo: "#",
+    description: "Swiz is a social media platform that helps you find your tribe.",
+    image: "/16.png",
+    technologies: ["React Native", "Firebase", "Python"],
+    github: "https://github.com/LogicMason5/Swiz-Find-Your-Tribe",
+    isPrivate: true,
+    demo: "https://apps.apple.com/in/app/swiz-find-your-tribe/id1577166087",
     longDescription:
-      "A feature-rich event management app for discovering events, purchasing tickets, checking in with QR codes, and networking with other attendees. Includes calendar integration and event reminders.",
+      "Swiz is a social media platform that helps you find your tribe.",
   },
   {
     id: 17,
-    title: "Project Management Tool",
-    category: "fullstack" as const,
-    description: "Collaborative project management with Kanban boards and time tracking",
-    image: "/project-management-kanban.png",
-    technologies: ["Next.js", "Node.js", "MongoDB", "Socket.io"],
-    github: "https://github.com/username/project-management",
+    title: "Famulor — AI Project Management Tool",
+    category: "ai" as const,
+    description: "Famulor is an AI-powered project management tool that helps you manage your projects.",
+    image: "/17.png",
+    technologies: ["Next.js", "Node.js", "Socket.io", "OpenAI", "LangChain"],
+    github: "https://github.com/LogicMason5/Famulor-Project-Management-Tool",
     isPrivate: true,
-    demo: "#",
+    demo: "https://www.famulor.io/",
     longDescription:
-      "A powerful project management platform with Kanban boards, Gantt charts, time tracking, team collaboration, file sharing, and detailed analytics. Real-time updates via WebSocket connections.",
+      "Famulor is an AI-powered project management tool that helps you manage your projects.",
   },
   {
     id: 18,
-    title: "Meditation & Wellness App",
-    category: "mobile" as const,
-    description: "Mindfulness and meditation app with guided sessions",
-    image: "/meditation-wellness-app.jpg",
-    technologies: ["React Native", "Firebase", "HealthKit", "Audio Streaming"],
-    github: "https://github.com/username/meditation-wellness",
-    isPrivate: false,
-    demo: "#",
+    title: "NF Prompt — AI-Powered Wellness App",
+    category: "fullstack" as const,
+    description: "NF Prompt is an AI-powered wellness app that helps you meditate and relax.",
+    image: "/18.png",
+    technologies: ["Vue.js", "Nuxt.js", "Umami"],
+    github: "https://github.com/LogicMason5/NF-Prompt-AI-Powered-Wellness-App",
+    isPrivate: true,
+    demo: "https://nfprompt.io/",
     longDescription:
-      "A wellness application offering guided meditation sessions, breathing exercises, sleep sounds, and mood tracking. Integrates with health data platforms for comprehensive wellness monitoring.",
+      "NF Prompt is an AI-powered wellness app that helps you meditate and relax.",
   },
   {
     id: 19,
-    title: "Cloud Storage Platform",
+    title: "Dobson Ranch Golf Course — Golf Course Booking System",
     category: "fullstack" as const,
     description: "Secure file storage and sharing with end-to-end encryption",
-    image: "/cloud-storage-platform.jpg",
-    technologies: ["Vue", "Node.js", "AWS S3", "Docker"],
-    github: "https://github.com/username/cloud-storage",
+    image: "/19.png",
+    technologies: ["Wordpress", "Ngnix", "MySQL"],
+    github: "https://github.com/LogicMason5/Dobson-Ranch-Golf-Course",
     isPrivate: true,
-    demo: "#",
+    demo: "https://www.dobsonranchgolfclub.com/",
     longDescription:
-      "A secure cloud storage solution with end-to-end encryption, file versioning, team collaboration, and granular access controls. Built on AWS infrastructure for reliability and scalability.",
+      "Dobson Ranch Golf Course is a golf course that provides a variety of golf services.",
   },
   {
     id: 20,
-    title: "Gaming Community App",
-    category: "mobile" as const,
-    description: "Social platform for gamers with team finding and tournament management",
-    image: "/gaming-community-app.jpg",
-    technologies: ["Kotlin", "Swift", "Node.js", "WebSocket"],
-    github: "https://github.com/username/gaming-community",
-    isPrivate: false,
-    demo: "#",
+    title: "TechnofuturTIC – Digital Skills & IT Training Centre",
+    category: "fullstack" as const,
+    description: "TechnofuturTIC is a digital skills and IT training centre that provides a variety of digital skills and IT training services.",
+    image: "/20.png",
+    technologies: ["Wordpress", "Ngnix", "PostgreSQL", "GSAP"],
+    github: "https://github.com/LogicMason5/Gaming-Community-App",
+    isPrivate: true,
+    demo: "https://technofuturtic.be/",
     longDescription:
-      "A gaming-focused social platform with team matching, tournament organization, live chat, game statistics tracking, and community forums. Features real-time notifications and leaderboards.",
+      "TechnofuturTIC is a digital skills and IT training centre that provides a variety of digital skills and IT training services.",
   },
 ]
 
@@ -428,8 +429,9 @@ export function ProjectsSection() {
                 </div>
                 <div className="flex gap-4">
                   <Button asChild className="flex-1">
-                    <a href={selectedProject.demo} target="_blank" rel="noopener noreferrer">
-                      📱 View Demo
+                    <a href={selectedProject.demo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      View Demo
                     </a>
                   </Button>
                   <Button variant="outline" asChild className="flex-1 bg-transparent">
@@ -438,15 +440,34 @@ export function ProjectsSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => handleGitHubClick(e, selectedProject.isPrivate)}
+                      className="flex items-center justify-center gap-2"
                     >
-                      {selectedProject.isPrivate ? "🔒 View Source" : "🔓 View Source"}
+                      {selectedProject.isPrivate ? (
+                        <>
+                          <Lock className="w-4 h-4" />
+                          View Source
+                        </>
+                      ) : (
+                        <>
+                          <Code2 className="w-4 h-4" />
+                          View Source
+                        </>
+                      )}
                     </a>
                   </Button>
                 </div>
                 <p className="text-xs text-muted-foreground flex items-center gap-1">
-                  {selectedProject.isPrivate
-                    ? "🔐 Password required to access GitHub repository"
-                    : "✓ Public repository"}
+                  {selectedProject.isPrivate ? (
+                    <>
+                      <Key className="w-3 h-3" />
+                      Access to GitHub repositories requires user's permission.
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircle2 className="w-3 h-3" />
+                      Public repository
+                    </>
+                  )}
                 </p>
               </div>
             </>
