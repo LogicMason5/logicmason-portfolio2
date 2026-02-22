@@ -144,19 +144,19 @@ const projects = [
     longDescription:
       "Speak, Listen, and Learn 100+ Languages with Elsa Speak",
   },
-  {
-    id: 11,
-    title: "Apple Health",
-    category: "mobile" as const,
-    description: "The Apple Health app provides a central and secure place for your health data.",
-    image: "/11.png",
-    technologies: ["React Native", "Supabase", "Prisma", "REST API", "TailwindCSS", "Expo"],
-    github: "https://github.com/LogicMason5/App-Health",
-    isPrivate: true,
-    demo: "https://apps.apple.com/us/app/apple-health/id1242545199",
-    longDescription:
-      "The Apple Health app provides a central and secure place for your health data.",
-  },
+  // {
+   // id: 11,
+  //  title: "Apple Health",
+ //   category: "mobile" as const,
+  //  description: "The Apple Health app provides a central and secure place for your health data.",
+ //   image: "/11.png",
+//    technologies: ["React Native", "Supabase", "Prisma", "REST API", "TailwindCSS", "Expo"],
+//    github: "https://github.com/LogicMason5/App-Health",
+//    isPrivate: true,
+//    demo: "https://apps.apple.com/us/app/apple-health/id1242545199",
+//    longDescription:
+ //     "The Apple Health app provides a central and secure place for your health data.",
+ // },
   {
     id: 12,
     title: "Zoundz — Pet Anxiety Therapeutic",
