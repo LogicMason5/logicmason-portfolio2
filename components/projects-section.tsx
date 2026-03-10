@@ -27,19 +27,19 @@ const projects = [
     longDescription:
       "株式会社ファイブグループの採用サイト。「楽しいでつながる世界をつくる」をビジョンに、飲食業を通じてキャリアアップや成長ができる環境を提供しています",
   },
-  {
-    id: 2,
-    title: "Holidu: Vacation Rentals",
-    category: "fullstack" as const,
-    description: "Vacation Rentals Booking App",
-    image: "/2.png",
-    technologies: ["Next", "Typescript", "FastAPI", "Django", "Stripe", "Redis"],
-    github: "https://github.com/LogicMason5/Holidu",
-    isPrivate: true,
-    demo: "https://www.holidu.com/app",
-    longDescription:
-      "With Holidu you have access to millions of accommodations around Europe.",
-  },
+//{
+//    id: 2,
+//title: "Holidu: Vacation Rentals",
+//    category: "fullstack" as const,
+//    description: "Vacation Rentals Booking App",
+//image: "/2.png",
+//technologies: ["Next", "Typescript", "FastAPI", "Django", "Stripe", "Redis"],
+//github: "https://github.com/LogicMason5/Holidu",
+//isPrivate: true,
+//    demo: "https://www.holidu.com/app",
+//    longDescription:
+//      "With Holidu you have access to millions of accommodations around Europe.",
+//  },
   {
     id: 3,
     title: "Fashion Sushi Bar – Online Sushi Restaurant",
