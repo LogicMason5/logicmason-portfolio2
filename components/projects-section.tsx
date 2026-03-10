@@ -261,19 +261,19 @@ const projects = [
     longDescription:
       "Dobson Ranch Golf Course is a golf course that provides a variety of golf services.",
   },
-  {
-    id: 20,
-    title: "TechnofuturTIC – Digital Skills & IT Training Centre",
-    category: "fullstack" as const,
-    description: "TechnofuturTIC is a digital skills and IT training centre that provides a variety of digital skills and IT training services.",
-    image: "/20.png",
-    technologies: ["Wordpress", "Ngnix", "PostgreSQL", "GSAP"],
-    github: "https://github.com/LogicMason5/Gaming-Community-App",
-    isPrivate: true,
-    demo: "https://technofuturtic.be/",
-    longDescription:
-      "TechnofuturTIC is a digital skills and IT training centre that provides a variety of digital skills and IT training services.",
-  },
+  //{
+  //  id: 20,
+  //  title: "TechnofuturTIC – Digital Skills & IT Training Centre",
+ //   category: "fullstack" as const,
+ //   description: "TechnofuturTIC is a digital skills and IT training centre that provides a variety of digital skills and IT training services.",
+//    image: "/20.png",
+ //   technologies: ["Wordpress", "Ngnix", "PostgreSQL", "GSAP"],
+//    github: "https://github.com/LogicMason5/Gaming-Community-App",
+//    isPrivate: true,
+//    demo: "https://technofuturtic.be/",
+//    longDescription:
+//      "TechnofuturTIC is a digital skills and IT training centre that provides a variety of digital skills and IT training services.",
+//  },
 ]
 
 export function ProjectsSection() {
