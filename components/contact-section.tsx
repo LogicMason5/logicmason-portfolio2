@@ -31,7 +31,7 @@ const contacts = [
   {
     name: "Telegram",
     icon: SiTelegram,
-    value: "@sweaver5",
+    value: "@logicmason",
     link: "https://t.me/@logicmason",
     color: "#26A5E4",
   },
