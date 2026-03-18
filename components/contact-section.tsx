@@ -32,7 +32,7 @@ const contacts = [
     name: "Telegram",
     icon: SiTelegram,
     value: "@sweaver5",
-    link: "https://t.me/sweaver5",
+    link: "https://t.me/@logicmason",
     color: "#26A5E4",
   },
 ]
