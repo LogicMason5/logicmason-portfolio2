@@ -1,7 +1,47 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+/* animate-in / animate-out utilities (replaces tw-animate-css) */
+@layer utilities {
+  .animate-in {
+    animation-fill-mode: both;
+    animation-duration: 150ms;
+  }
+  .animate-out {
+    animation-fill-mode: both;
+    animation-duration: 150ms;
+  }
+  .fade-in { animation-name: fadeIn; }
+  .fade-in-0 { animation-name: fadeIn; --tw-enter-opacity: 0; }
+  .fade-out-0 { animation-name: fadeOut; --tw-exit-opacity: 0; }
+  .zoom-in-95 { animation-name: zoomIn; --tw-enter-scale: 0.95; }
+  .zoom-out-95 { animation-name: zoomOut; --tw-exit-scale: 0.95; }
+  .slide-in-from-top-2 { animation-name: slideInFromTop; --tw-enter-translate-y: -0.5rem; }
+  .duration-200 { animation-duration: 200ms; }
+  .duration-300 { animation-duration: 300ms; }
+}
+
+@keyframes fadeIn {
+  from { opacity: var(--tw-enter-opacity, 0); }
+  to   { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: var(--tw-exit-opacity, 0); }
+}
+@keyframes zoomIn {
+  from { transform: scale(var(--tw-enter-scale, 0.95)); opacity: var(--tw-enter-opacity, 0); }
+  to   { transform: scale(1); opacity: 1; }
+}
+@keyframes zoomOut {
+  from { transform: scale(1); opacity: 1; }
+  to   { transform: scale(var(--tw-exit-scale, 0.95)); opacity: var(--tw-exit-opacity, 0); }
+}
+@keyframes slideInFromTop {
+  from { transform: translateY(var(--tw-enter-translate-y, -0.5rem)); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
 
 /* Light mode: Pure white background with darker text for readability */
 :root {
@@ -289,6 +329,11 @@
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
+}
+
+/* Hide native cursor globally so the custom petal cursor shows */
+*, *::before, *::after {
+  cursor: none !important;
 }
 
 /* Gradient animation */

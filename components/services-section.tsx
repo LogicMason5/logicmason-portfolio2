@@ -1,205 +1,388 @@
 "use client"
 
-import { Code, Smartphone, Cloud, Zap, Database, Brain } from "lucide-react"
-import { useEffect, useRef } from "react"
+import { Code, Smartphone, Cloud, Zap, Database, Brain, type LucideIcon } from "lucide-react"
+import { useEffect, useRef, useState, useCallback } from "react"
+import { useI18n } from "@/lib/i18n"
+import { createPortal } from "react-dom"
 
-const services = [
-  {
-    icon: Brain,
-    title: "AI/ML Integration",
-    description:
-      "Implement cutting-edge machine learning models and AI solutions using TensorFlow, PyTorch, and LangChain for intelligent applications.",
-    features: ["LLM Integration", "ML Models", "NLP Solutions", "Computer Vision"],
-    decoration: "sparkles",
-  },
-  {
-    icon: Code,
-    title: "Full-Stack Development",
-    description:
-      "End-to-end web application development with modern frameworks like Next.js, React, and Node.js with scalable, secure architectures.",
-    features: ["Next.js Apps", "API Development", "Database Design", "Real-time Features"],
-    decoration: "dots",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile Development",
-    description:
-      "Native and cross-platform mobile applications for iOS and Android using React Native, Flutter, Swift, and Kotlin.",
-    features: ["iOS Apps", "Android Apps", "Cross-platform", "App Store Deployment"],
-    decoration: "lines",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & DevOps",
-    description: "Scalable cloud infrastructure and deployment using AWS, Google Cloud, and modern DevOps practices.",
-    features: ["Cloud Migration", "CI/CD Pipelines", "Container Orchestration", "Performance Optimization"],
-    decoration: "waves",
-  },
-  {
-    icon: Database,
-    title: "Database Architecture",
-    description:
-      "Design and implementation of robust database solutions with PostgreSQL, MySQL, MongoDB, and modern ORMs.",
-    features: ["Schema Design", "Query Optimization", "Data Migration", "Backup Strategies"],
-    decoration: "circles",
-  },
-  {
-    icon: Zap,
-    title: "Performance & Optimization",
-    description:
-      "Enhance application speed and efficiency through code optimization, caching strategies, and modern best practices.",
-    features: ["Code Splitting", "Lazy Loading", "Caching", "Lighthouse Optimization"],
-    decoration: "zigzag",
-  },
+const serviceIcons: LucideIcon[] = [Brain, Code, Smartphone, Cloud, Database, Zap]
+
+// ── Icon accent colours per service ──────────────────────────────────────────
+const ICON_COLORS = [
+  "#a78bfa", // violet  – AI
+  "#60a5fa", // blue    – Full-Stack
+  "#34d399", // emerald – Mobile
+  "#38bdf8", // sky     – Cloud
+  "#fb923c", // orange  – Database
+  "#facc15", // yellow  – Performance
 ]
 
-export function ServicesSection() {
-  const scrollRef = useRef<HTMLDivElement>(null)
+// ── Clean minimal card decoration (top-left corner accent only) ───────────────
+function CardAccent({ color }: { color: string }) {
+  return (
+    <>
+      {/* Top-left L-bracket */}
+      <span
+        className="absolute top-0 left-0 w-5 h-5 pointer-events-none"
+        style={{
+          borderTop: `2px solid ${color}55`,
+          borderLeft: `2px solid ${color}55`,
+          borderTopLeftRadius: 6,
+        }}
+      />
+      {/* Bottom-right L-bracket */}
+      <span
+        className="absolute bottom-0 right-0 w-5 h-5 pointer-events-none"
+        style={{
+          borderBottom: `2px solid ${color}55`,
+          borderRight: `2px solid ${color}55`,
+          borderBottomRightRadius: 6,
+        }}
+      />
+      {/* Subtle top gradient line */}
+      <span
+        className="absolute top-0 left-5 right-5 h-px pointer-events-none"
+        style={{ background: `linear-gradient(90deg, transparent, ${color}33, transparent)` }}
+      />
+    </>
+  )
+}
 
+// ── Individual service card (pure HTML/CSS, rendered into Three.js CSS3D) ─────
+interface ServiceCardProps {
+  title: string
+  description: string
+  features: string[]
+  Icon: LucideIcon
+  color: string
+  active: boolean
+  onClick: () => void
+}
+
+function ServiceCard({ title, description, features, Icon, color, active, onClick }: ServiceCardProps) {
+  return (
+    <div
+      onClick={onClick}
+      className="relative rounded-xl p-4 transition-all duration-500 select-none overflow-hidden"
+      style={{
+        width: 220,
+        background: active
+          ? "linear-gradient(135deg, rgba(30,20,50,0.97) 0%, rgba(45,25,70,0.97) 100%)"
+          : "linear-gradient(135deg, rgba(18,12,35,0.92) 0%, rgba(28,18,50,0.92) 100%)",
+        border: active ? `1.5px solid ${color}88` : "1.5px solid rgba(139,92,246,0.18)",
+        boxShadow: active
+          ? `0 0 24px ${color}33, 0 6px 30px rgba(0,0,0,0.5)`
+          : "0 4px 20px rgba(0,0,0,0.35)",
+        cursor: "pointer",
+        backdropFilter: "blur(12px)",
+        minHeight: 220,
+      }}
+    >
+      <CardAccent color={color} />
+
+      {/* Icon */}
+      <div
+        className="mb-3 inline-flex items-center justify-center w-9 h-9 rounded-lg"
+        style={{
+          background: `${color}18`,
+          border: `1px solid ${color}33`,
+        }}
+      >
+        <Icon style={{ color, width: 17, height: 17 }} />
+      </div>
+
+      {/* Title */}
+      <h3
+        className="text-sm font-bold mb-1.5 leading-snug"
+        style={{ color: active ? "#fff" : "#e2d9f3" }}
+      >
+        {title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-xs leading-relaxed mb-3" style={{ color: "#9d8ec0" }}>
+        {description}
+      </p>
+
+      {/* Feature list */}
+      <ul className="space-y-1">
+        {features.map((f, i) => (
+          <li key={i} className="flex items-center gap-1.5 text-xs" style={{ color: "#b8a8d8" }}>
+            <span
+              className="w-1 h-1 rounded-full flex-shrink-0"
+              style={{ background: color, opacity: 0.8 }}
+            />
+            {f}
+          </li>
+        ))}
+      </ul>
+
+      {/* Active glow overlay */}
+      {active && (
+        <span
+          className="absolute inset-0 rounded-2xl pointer-events-none"
+          style={{
+            background: `radial-gradient(ellipse at 30% 20%, ${color}12 0%, transparent 70%)`,
+          }}
+        />
+      )}
+    </div>
+  )
+}
+
+// ── Three.js 3D carousel ──────────────────────────────────────────────────────
+interface CarouselProps {
+  services: { title: string; description: string; features: string[]; icon: LucideIcon }[]
+}
+
+function ThreeCarousel({ services }: CarouselProps) {
+  const mountRef = useRef<HTMLDivElement>(null)
+  const [activeIdx, setActiveIdx] = useState(0)
+  const [cardEls, setCardEls] = useState<HTMLDivElement[]>([])
+  const angleRef = useRef(0)          // current rotation angle (radians)
+  const targetAngleRef = useRef(0)    // target angle
+  const rafRef = useRef<number | null>(null)
+  const isDragging = useRef(false)
+  const dragStartX = useRef(0)
+  const dragStartAngle = useRef(0)
+
+  const count = services.length
+  const RADIUS = 320
+  const CARD_W = 220
+
+  // Build card DOM elements once
   useEffect(() => {
-    const scrollContainer = scrollRef.current
-    if (!scrollContainer) return
+    const els: HTMLDivElement[] = services.map(() => {
+      const el = document.createElement("div")
+      el.style.position = "absolute"
+      el.style.width = `${CARD_W}px`
+      el.style.transformStyle = "preserve-3d"
+      return el
+    })
+    setCardEls(els)
+  }, [services.length]) // eslint-disable-line
 
-    let animationId: number
-    let scrollPosition = 0
+  // Snap to nearest card
+  const snapTo = useCallback((idx: number) => {
+    const step = (Math.PI * 2) / count
+    targetAngleRef.current = -idx * step
+    setActiveIdx(idx)
+  }, [count])
 
-    const animate = () => {
-      scrollPosition += 0.5
-      if (scrollPosition >= scrollContainer.scrollWidth / 2) {
-        scrollPosition = 0
-      }
-      scrollContainer.scrollLeft = scrollPosition
-      animationId = requestAnimationFrame(animate)
+  // Navigate
+  const prev = useCallback(() => snapTo((activeIdx - 1 + count) % count), [activeIdx, count, snapTo])
+  const next = useCallback(() => snapTo((activeIdx + 1) % count), [activeIdx, count, snapTo])
+
+  // Animation + layout loop
+  useEffect(() => {
+    if (cardEls.length === 0 || !mountRef.current) return
+
+    const container = mountRef.current
+    const step = (Math.PI * 2) / count
+
+    const loop = () => {
+      // Lerp toward target
+      const diff = targetAngleRef.current - angleRef.current
+      angleRef.current += diff * 0.07
+
+      cardEls.forEach((el, i) => {
+        const theta = angleRef.current + i * step
+        const x = Math.sin(theta) * RADIUS
+        const z = Math.cos(theta) * RADIUS
+        const scale = 0.72 + 0.28 * ((z + RADIUS) / (2 * RADIUS))
+        const opacity = 0.35 + 0.65 * ((z + RADIUS) / (2 * RADIUS))
+        const rotY = -theta * (180 / Math.PI)
+
+        el.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${rotY}deg) scale(${scale})`
+        el.style.opacity = String(opacity)
+        el.style.zIndex = String(Math.round((z + RADIUS) * 10))
+      })
+
+      rafRef.current = requestAnimationFrame(loop)
     }
 
-    animationId = requestAnimationFrame(animate)
+    // Mount cards
+    cardEls.forEach(el => container.appendChild(el))
+    rafRef.current = requestAnimationFrame(loop)
 
     return () => {
-      cancelAnimationFrame(animationId)
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+      cardEls.forEach(el => { if (el.parentNode) el.parentNode.removeChild(el) })
     }
-  }, [])
+  }, [cardEls, count])
+
+  // Drag to rotate
+  useEffect(() => {
+    const el = mountRef.current
+    if (!el) return
+
+    const onDown = (e: MouseEvent | TouchEvent) => {
+      isDragging.current = true
+      dragStartX.current = "touches" in e ? e.touches[0].clientX : e.clientX
+      dragStartAngle.current = targetAngleRef.current
+    }
+    const onMove = (e: MouseEvent | TouchEvent) => {
+      if (!isDragging.current) return
+      const x = "touches" in e ? e.touches[0].clientX : e.clientX
+      const delta = (x - dragStartX.current) / 200
+      targetAngleRef.current = dragStartAngle.current + delta
+    }
+    const onUp = () => {
+      if (!isDragging.current) return
+      isDragging.current = false
+      // Snap to nearest
+      const step = (Math.PI * 2) / count
+      const nearest = Math.round(-targetAngleRef.current / step)
+      snapTo(((nearest % count) + count) % count)
+    }
+
+    el.addEventListener("mousedown", onDown)
+    el.addEventListener("mousemove", onMove)
+    el.addEventListener("mouseup", onUp)
+    el.addEventListener("touchstart", onDown, { passive: true })
+    el.addEventListener("touchmove", onMove, { passive: true })
+    el.addEventListener("touchend", onUp)
+    return () => {
+      el.removeEventListener("mousedown", onDown)
+      el.removeEventListener("mousemove", onMove)
+      el.removeEventListener("mouseup", onUp)
+      el.removeEventListener("touchstart", onDown)
+      el.removeEventListener("touchmove", onMove)
+      el.removeEventListener("touchend", onUp)
+    }
+  }, [count, snapTo])
+
+  // Keyboard navigation
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev()
+      if (e.key === "ArrowRight") next()
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [prev, next])
+
+  return (
+    <div className="relative w-full" style={{ height: 320 }}>
+      {/* 3D scene */}
+      <div
+        className="absolute inset-0 flex items-center justify-center"
+        style={{ perspective: "1100px", perspectiveOrigin: "50% 45%" }}
+      >
+        <div
+          ref={mountRef}
+          className="relative"
+          style={{
+            width: CARD_W,
+            height: 240,
+            transformStyle: "preserve-3d",
+          }}
+        />
+      </div>
+
+      {/* Render React cards into the DOM elements */}
+      {cardEls.map((el, i) =>
+        createPortal(
+          <ServiceCard
+            key={i}
+            title={services[i].title}
+            description={services[i].description}
+            features={services[i].features}
+            Icon={services[i].icon}
+            color={ICON_COLORS[i]}
+            active={i === activeIdx}
+            onClick={() => snapTo(i)}
+          />,
+          el
+        )
+      )}
+
+      {/* Navigation arrows */}
+      <button
+        onClick={prev}
+        aria-label="Previous service"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+        style={{
+          background: "rgba(139,92,246,0.15)",
+          border: "1px solid rgba(139,92,246,0.3)",
+          color: "#a78bfa",
+        }}
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <button
+        onClick={next}
+        aria-label="Next service"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+        style={{
+          background: "rgba(139,92,246,0.15)",
+          border: "1px solid rgba(139,92,246,0.3)",
+          color: "#a78bfa",
+        }}
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+
+      {/* Dot indicators */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        {services.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => snapTo(i)}
+            aria-label={`Go to service ${i + 1}`}
+            className="transition-all duration-300"
+            style={{
+              width: i === activeIdx ? 20 : 6,
+              height: 6,
+              borderRadius: 3,
+              background: i === activeIdx ? ICON_COLORS[i] : "rgba(139,92,246,0.3)",
+              border: "none",
+              padding: 0,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+// ── Section ───────────────────────────────────────────────────────────────────
+export function ServicesSection() {
+  const { tr } = useI18n()
+
+  const services = tr.services.map((s, i) => ({
+    ...s,
+    icon: serviceIcons[i],
+  }))
 
   return (
     <section className="py-20 relative overflow-hidden">
+      {/* Subtle radial background glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 80% 50% at 50% 60%, rgba(109,40,217,0.07) 0%, transparent 70%)",
+        }}
+      />
+
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-            Services
+            {tr.servicesTitle}
           </h2>
           <p className="text-xl text-muted-foreground text-pretty max-w-2xl mx-auto">
-            Comprehensive AI, full-stack, and mobile development services for modern applications
+            {tr.servicesSubtitle}
+          </p>
+          <p className="text-sm text-muted-foreground/60 mt-3">
+            ← Drag or use arrow keys to explore →
           </p>
         </div>
 
-        <div ref={scrollRef} className="flex gap-6 overflow-x-hidden pb-4" style={{ scrollBehavior: "auto" }}>
-          {[...services, ...services].map((service, index) => (
-            <div
-              key={index}
-              className="group relative flex-shrink-0 w-80 bg-card/50 backdrop-blur-sm border-2 border-border/50 p-6 hover:border-violet-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-violet-500/20 hover:scale-105 service-card rounded-lg"
-            >
-                {/* Decorative corner elements */}
-                <div className="absolute top-0 left-0 w-8 h-8 service-decoration-top-left" />
-                <div className="absolute top-0 right-0 w-8 h-8 service-decoration-top-right" />
-                <div className="absolute bottom-0 left-0 w-8 h-8 service-decoration-bottom-left" />
-                <div className="absolute bottom-0 right-0 w-8 h-8 service-decoration-bottom-right" />
-
-                {/* Decoration pattern based on type */}
-                {service.decoration === "sparkles" && (
-                  <>
-                    <div className="absolute top-4 right-4 w-2 h-2 bg-violet-400 rounded-full opacity-60 animate-pulse" />
-                    <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-40 animate-pulse" style={{ animationDelay: "0.5s" }} />
-                    <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-pink-400 rounded-full opacity-40 animate-pulse" style={{ animationDelay: "1s" }} />
-                  </>
-                )}
-
-                {service.decoration === "dots" && (
-                  <>
-                    <div className="absolute top-3 left-3 w-1.5 h-1.5 bg-violet-400 rounded-full opacity-50" />
-                    <div className="absolute top-3 right-3 w-1.5 h-1.5 bg-violet-400 rounded-full opacity-50" />
-                    <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-violet-400 rounded-full opacity-50" />
-                    <div className="absolute bottom-3 right-3 w-1.5 h-1.5 bg-violet-400 rounded-full opacity-50" />
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-violet-400 rounded-full opacity-30" />
-                  </>
-                )}
-
-                {service.decoration === "lines" && (
-                  <>
-                    <div className="absolute top-0 left-1/4 w-px h-8 bg-gradient-to-b from-violet-400/50 to-transparent" />
-                    <div className="absolute top-0 right-1/4 w-px h-8 bg-gradient-to-b from-purple-400/50 to-transparent" />
-                    <div className="absolute bottom-0 left-1/4 w-px h-8 bg-gradient-to-t from-violet-400/50 to-transparent" />
-                    <div className="absolute bottom-0 right-1/4 w-px h-8 bg-gradient-to-t from-purple-400/50 to-transparent" />
-                  </>
-                )}
-
-                {service.decoration === "waves" && (
-                  <>
-                    <div className="absolute top-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-400/30 to-transparent" />
-                    <div className="absolute bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400/30 to-transparent" />
-                    <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-400/20 to-transparent" />
-                  </>
-                )}
-
-                {service.decoration === "circles" && (
-                  <>
-                    <div className="absolute top-4 left-4 w-6 h-6 border border-violet-400/30 rounded-full" />
-                    <div className="absolute bottom-4 right-4 w-6 h-6 border border-purple-400/30 rounded-full" />
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 border border-violet-400/20 rounded-full" />
-                  </>
-                )}
-
-                {service.decoration === "zigzag" && (
-                  <>
-                    <div className="absolute top-0 left-0 w-12 h-12">
-                      <svg className="w-full h-full" viewBox="0 0 12 12">
-                        <path
-                          d="M0,6 L3,3 L6,6 L9,3 L12,6"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                          fill="none"
-                          className="text-violet-400/40"
-                        />
-                      </svg>
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-12 h-12 transform rotate-180">
-                      <svg className="w-full h-full" viewBox="0 0 12 12">
-                        <path
-                          d="M0,6 L3,3 L6,6 L9,3 L12,6"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                          fill="none"
-                          className="text-purple-400/40"
-                        />
-                      </svg>
-                    </div>
-                  </>
-                )}
-
-                {/* Icon with decorative background */}
-                <div className="mb-4 inline-flex p-3 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-lg group-hover:scale-110 transition-transform duration-300 relative z-10">
-                  <service.icon className="w-6 h-6 text-violet-400 relative z-10" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-purple-500/10 rounded-lg blur-sm group-hover:blur-md transition-all duration-300" />
-                </div>
-
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-violet-400 transition-colors relative z-10">
-                  {service.title}
-                </h3>
-
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed relative z-10">{service.description}</p>
-
-                <ul className="space-y-2 relative z-10">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-violet-400 group-hover:scale-125 transition-transform duration-300" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Hover gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/0 to-purple-500/0 group-hover:from-violet-500/5 group-hover:to-purple-500/5 transition-all duration-300 pointer-events-none rounded-lg" />
-              </div>
-          ))}
-        </div>
+        <ThreeCarousel services={services} />
       </div>
     </section>
   )

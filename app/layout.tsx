@@ -1,11 +1,13 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Noto_Sans_JP, Pacifico } from "next/font/google"
+import { Noto_Sans_JP, Pacifico } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { SimpleCursor } from "@/components/simple-cursor"
+import { Chatbot } from "@/components/chatbot"
+import { I18nProvider } from "@/lib/i18n"
 import {
   JapaneseSakuraBlossoms,
   JapaneseBambooPattern,
@@ -13,8 +15,6 @@ import {
   JapaneseMountains,
 } from "@/components/japanese-accents"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
@@ -46,6 +46,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans antialiased ${notoSansJP.variable} ${pacifico.variable}`}>
         <ThemeProvider>
+          <I18nProvider>
           <SimpleCursor />
           <JapaneseSakuraBlossoms />
           <JapaneseBambooPattern />
@@ -54,6 +55,8 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <Chatbot />
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>

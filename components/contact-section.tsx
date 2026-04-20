@@ -1,10 +1,11 @@
 "use client"
 
 import { Mail, Github, Send, Clock, Globe } from "lucide-react"
-import { SiDiscord, SiTelegram } from "react-icons/si"
+import { SiDiscord, SiTelegram, SiWhatsapp } from "react-icons/si"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { useI18n } from "@/lib/i18n"
 
 const contacts = [
   {
@@ -35,15 +36,23 @@ const contacts = [
     link: "https://t.me/@logicmason",
     color: "#26A5E4",
   },
+  {
+    name: "WhatsApp",
+    icon: SiWhatsapp,
+    value: "+81 70-4485-1707",
+    link: "https://wa.me/817044851707",
+    color: "#25D366",
+  },
 ]
 
 export function ContactSection() {
+  const { tr } = useI18n()
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Get In Touch</h2>
-          <p className="text-xl text-muted-foreground text-pretty">Let's discuss your next project</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">{tr.contactTitle}</h2>
+          <p className="text-xl text-muted-foreground text-pretty">{tr.contactSubtitle}</p>
         </div>
 
         <div className="max-w-4xl mx-auto">
@@ -83,18 +92,18 @@ export function ContactSection() {
                   <div className="w-12 h-12 rounded-full bg-violet-500/20 flex items-center justify-center">
                     <Clock className="w-6 h-6 text-violet-400" />
                   </div>
-                  <h3 className="text-xl font-semibold">RESPONSE TIME</h3>
+                  <h3 className="text-xl font-semibold">{tr.contactResponseTime}</h3>
                 </div>
                 <div className="space-y-2 pl-16">
                   <div>
-                    <span className="text-sm font-medium text-muted-foreground">PRIORITY:</span>
+                    <span className="text-sm font-medium text-muted-foreground">{tr.contactPriority}</span>
                     <Badge className="ml-2 bg-violet-500/20 text-violet-400 border-violet-500/30">
-                      HIGH
+                      {tr.contactHigh}
                     </Badge>
                   </div>
                   <div>
-                    <span className="text-sm font-medium text-muted-foreground">ETA:</span>
-                    <span className="ml-2 text-sm font-semibold text-foreground">&lt; 4 HOURS</span>
+                    <span className="text-sm font-medium text-muted-foreground">{tr.contactETA}</span>
+                    <span className="ml-2 text-sm font-semibold text-foreground">&lt; 4 {tr.contactETA === "ETA:" ? "HOURS" : tr.contactETA === "DÉLAI :" ? "HEURES" : "時間"}</span>
                   </div>
                 </div>
               </div>
@@ -105,16 +114,16 @@ export function ContactSection() {
                   <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
                     <Globe className="w-6 h-6 text-purple-400" />
                   </div>
-                  <h3 className="text-xl font-semibold">AVAILABILITY</h3>
+                  <h3 className="text-xl font-semibold">{tr.contactAvailability}</h3>
                 </div>
                 <div className="space-y-2 pl-16">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-sm font-semibold">24/7 MONITORING</span>
+                    <span className="text-sm font-semibold">{tr.contactMonitoring}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-blue-500" />
-                    <span className="text-sm font-semibold">GLOBAL COVERAGE</span>
+                    <span className="text-sm font-semibold">{tr.contactGlobal}</span>
                   </div>
                 </div>
               </div>
@@ -123,7 +132,7 @@ export function ContactSection() {
 
           <div className="mt-12 text-center">
             <Button size="lg" className="group">
-              Download CV
+              {tr.contactDownloadCV}
               <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
