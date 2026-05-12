@@ -39,8 +39,8 @@ const contacts = [
   {
     name: "WhatsApp",
     icon: SiWhatsapp,
-    value: "+81 70-4485-1707",
-    link: "https://wa.me/817044851707",
+    value: "+81 80-8142-4181",
+    link: "https://wa.me/818081424181",
     color: "#25D366",
   },
 ]
