@@ -199,7 +199,7 @@ export function HeroSection() {
                 className="group font-semibold border-2 border-pink-500/70 text-pink-600 dark:text-pink-300 hover:bg-pink-500 hover:text-white dark:hover:bg-pink-500 dark:hover:text-white bg-transparent transition-all duration-200 shadow-sm"
                 variant="outline"
               >
-                <a href="/LogicMasonResume.pdf" download="LogicMason_Resume.pdf">
+                <a href="/LogicMasonResume.pdf" download="LogicMasonResume.pdf">
                   <Download className="mr-2 h-4 w-4 group-hover:-translate-y-0.5 transition-transform" />
                   Download CV
                 </a>
