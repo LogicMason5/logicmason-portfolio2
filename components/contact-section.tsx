@@ -25,22 +25,22 @@ const contacts = [
   {
     name: "Discord",
     icon: SiDiscord,
-    value: "LMason",
-    link: "https://discord.com",
+    value: "LogicMason",
+    link: "https://discord.gg/DPKYwURbT",
     color: "#5865F2",
   },
   {
     name: "Telegram",
     icon: SiTelegram,
-    value: "@logicmason",
-    link: "https://t.me/@logicmason",
+    value: "LogicMason",
+    link: "https://t.me/@aVDECvwquR",
     color: "#26A5E4",
   },
   {
     name: "WhatsApp",
     icon: SiWhatsapp,
-    value: "+81 80-8142-4181",
-    link: "https://wa.me/818081424181",
+    value: "+81 80-2512-0295",
+    link: "https://wa.me/818025120295",
     color: "#25D366",
   },
 ]
